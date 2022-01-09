@@ -1,0 +1,32 @@
+.links {
+  width: fit-content;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  padding-left: 0;
+  border-bottom: 2px solid var(--accent-color);
+  display: flex;
+  list-style: none;
+}
+
+.links__item {
+  padding-right: 100px;
+}
+
+.links__item--active {
+  color: var(--accent-color);
+}
+
+.links__item--last {
+  padding-right: 0;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 700;
+}
