@@ -25,6 +25,18 @@ function ProjectCard({
       </a>
     );
   };
+  const linkRealSite = () => {
+    if (realLink === "") {
+      return <h2 className="projectCard__information--title">{title}</h2>;
+    }
+    return (
+      <>
+        <a href={realLink} target="_blank" rel="noreferrer">
+          <h2 className="projectCard__information--title projectCard__information--title--link">{title}</h2>
+        </a>
+      </>
+    );
+  };
 
   return (
     <div className="projectCard">
@@ -38,13 +50,7 @@ function ProjectCard({
       <div className="projectCard__information">
         <div className="projectCard__information--header">
           <div className="projetCard__information__titleContainer">
-            <a
-              href={realLink}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <h2 className="projectCard__information--title">{title}</h2>
-            </a>
+            {linkRealSite()}
           </div>
           <p className="projectCard__information--description">{description}</p>
           <div className="stackFeatures__container">
