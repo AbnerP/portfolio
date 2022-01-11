@@ -15,7 +15,12 @@ function ProjectCard({
       return null;
     }
     return (
-      <a className="externalLink" href={realLink} target="_blank" rel="noreferrer">
+      <a
+        className="externalLink externalLink--site"
+        href={realLink}
+        target="_blank"
+        rel="noreferrer"
+      >
         View Site
       </a>
     );
@@ -32,28 +37,52 @@ function ProjectCard({
       </div>
       <div className="projectCard__information">
         <div className="projectCard__information--header">
-          <h2 className="projectCard__information--title">{title}</h2>
+          <div className="projetCard__information__titleContainer">
+            <a
+              href={realLink}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <h2 className="projectCard__information--title">{title}</h2>
+            </a>
+          </div>
           <p className="projectCard__information--description">{description}</p>
           <div className="stackFeatures__container">
-          <div className="stackFeatures__element">
+            <div className="stackFeatures__element">
               <h3 className="stackFeatures__Title">Tech Stack</h3>
-                {stack.map((tech) => {
-                  return <h4 className="stackFeatures__item ">{tech}</h4>;
-                })}
+              {stack.map((tech) => {
+                return (
+                  <>
+                    <span className="stackFeatures__bullet"> {">"} </span>
+                    <h4 className="stackFeatures__item "> {tech}</h4>
+                    <br />
+                  </>
+                );
+              })}
             </div>
             <div className="stackFeatures__element">
               <h3 className="stackFeatures__Title">Features</h3>
               {features.map((feature) => {
-                  return <h4 className="stackFeatures__item ">{feature}</h4>;
+                return (
+                  <>
+                    <span className="stackFeatures__bullet"> {">"} </span>
+                    <h4 className="stackFeatures__item "> {feature}</h4>
+                    <br />
+                  </>
+                );
               })}
             </div>
           </div>
         </div>
-        <div className="projectCard__techStack">
-        </div>
+        <div className="projectCard__techStack"></div>
         <div className="projectCard__externalLinks">
           {viewSite()}
-          <a className="externalLink" href={githubLink} target="_blank" rel="noreferrer">
+          <a
+            className="externalLink"
+            href={githubLink}
+            target="_blank"
+            rel="noreferrer"
+          >
             View Code
           </a>
         </div>
