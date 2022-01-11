@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
+import "./Projects.css"
 
 function Projects() {
   const projectDivider = (i) => {
@@ -47,23 +48,15 @@ function Projects() {
       imageURL: "prec_website_ss.png",
       features: ["OAuth2", "Web APIs"],
     },
-
-    // {
-    //   title: "Live Lyrics",
-    //   description: "",
-    //   realLink: "",
-    //   githubLink: "",
-    //   stack: ["MongoDB", "Express.js", "Angular", "Node.js", ".NET Core"],
-    //   imageURL: "prec.png",
-    // },
-    // {
-    //   title: "Portfolio Website",
-    //   description: "",
-    //   realLink: "",
-    //   githubLink: "",
-    //   stack: ["MongoDB", "Express.js", "Angular", "Node.js", ".NET Core"],
-    //   imageURL: "prec.png",
-    // },
+    {
+      title: "Portfolio Website",
+      description: "",
+      realLink: "",
+      githubLink: "",
+      stack: ["React"],
+      imageURL: "prec.png",
+      features: [],
+    },
   ];
   return (
     <div className="projects">
@@ -80,7 +73,6 @@ function Projects() {
               stack={project.stack}
               features={project.features}
             />
-            <br />
           </>
         );
       })}
