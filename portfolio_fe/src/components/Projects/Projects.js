@@ -54,7 +54,7 @@ function Projects() {
       realLink: "",
       githubLink: "",
       stack: ["React"],
-      imageURL: "prec.png",
+      imageURL: "prec_website_ss.png",
       features: [],
     },
   ];
