@@ -25,11 +25,13 @@
 }
 
 label{
+    font-weight: 500;
     font-size:1.2rem;
     color: var(--accent--color);
 }
 
 .contactMe__input{
+    transition: .3s ease;
     box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, .2);
     width:50vw;
     font-size: 1.2rem;
@@ -43,7 +45,7 @@ label{
 .contactMe__input:focus{
     background-color: rgba(0, 0, 0, 0.01);
     border: 1px solid var(--accent-color);
-    transition: .5s ease;
+    transition: .3s ease;
 }
 
 .contactMe_submitBTN{
