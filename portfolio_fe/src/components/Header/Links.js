@@ -29,7 +29,7 @@ function Links() {
         {routes.map((route, i) => {
           if (location.includes(route.path)) {
             return (
-              <li
+              <li key={route.name}
                 className={`links__item ${
                   i === routes.length - 1 ? "links__item--last" : ""
                 }`}
@@ -41,7 +41,7 @@ function Links() {
             );
           }
           return (
-            <li
+            <li key={route.name}
               className={`links__item ${
                 i === routes.length - 1 ? "links__item--last" : ""
               }`}

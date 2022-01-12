@@ -64,7 +64,7 @@ function Projects() {
         return (
           <>
             {projectDivider(i)}
-            <ProjectCard
+            <ProjectCard key={project.title}
               title={project.title}
               description={project.description}
               realLink={project.realLink}
