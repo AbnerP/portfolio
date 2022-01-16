@@ -1,6 +1,6 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
-import "./Projects.css"
+import "./Projects.css";
 
 function Projects() {
   const projectDivider = (i) => {
@@ -22,7 +22,7 @@ function Projects() {
         "User Authentication",
         "User Authorization",
         "Event Registration",
-        "Administrator Privileges"
+        "Administrator Privileges",
       ],
     },
     {
@@ -30,32 +30,31 @@ function Projects() {
       description:
         "Given the length, time lost when entering the pits and telemetry data for each available tire, the calculator will return the most optimal tire strategy for the race independent of the racing simulator.",
       realLink: "https://puertoricoeracing.com/calculator",
-      githubLink: "https://github.com/AbnerP/PReC-website/tree/main/Calculator-API",
+      githubLink:
+        "https://github.com/AbnerP/PReC-website/tree/main/Calculator-API",
       stack: ["ASP.NET Core"],
       imageURL: "prec_website__calculator_ss.png",
-      features: [
-        "Tree Search Pruning",
-      ],
+      features: ["Tree Search Pruning"],
     },
-    
     {
-      title: "Live Lyrics",
+      title: "Live Spotify Lyrics",
       description:
-        "Website for the simulation racing club I am a part of. Website for the simulation racing club I am a part of. Website for the simulation racing club I am a part of. Website for the simulation racing club I am a part of. Website for the simulation racing club I am a part of. Website for the simulation racing club I am a part of. Website for the simulation racing club I am a part of. ",
+        "Log in using Spotify and this app will show you the lyrics to the song you are currently playing.",
       realLink: "",
-      githubLink: "https://github.com/AbnerP/PReC-website",
-      stack: ["Express.js", "Angular", "Node.js"],
-      imageURL: "prec_website_ss.png",
-      features: ["OAuth2", "Web APIs"],
+      githubLink: "https://github.com/AbnerP/Live_Spotify_Lyrics",
+      stack: ["React"],
+      imageURL: "live_spotify_lyrics_ss.png",
+      features: ["OAuth2", "Spotify API"],
     },
     {
-      title: "Portfolio Website",
-      description: "",
+      title: "This Website",
+      description:
+        "This is my first ever application using React. Before this, I would always use Angular for the Front End. I wanted to challenge myself and learn React as I am looking to use React Native for mobile development in the near future.",
       realLink: "",
-      githubLink: "",
+      githubLink: "https://github.com/AbnerP/portfolio",
       stack: ["React"],
-      imageURL: "prec_website_ss.png",
-      features: [],
+      imageURL: "bitmoji_portrait.png",
+      features: ["Emailing"],
     },
   ];
   return (
@@ -64,7 +63,8 @@ function Projects() {
         return (
           <>
             {projectDivider(i)}
-            <ProjectCard key={project.title}
+            <ProjectCard
+              key={project.title}
               title={project.title}
               description={project.description}
               realLink={project.realLink}
