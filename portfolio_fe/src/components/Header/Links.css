@@ -40,12 +40,27 @@
 }
 
 @media (max-width:990px) {
-  .links {
-    transform: scale(.9);
+  .links__item--anchor {
+    font-size: 16px;
   }
+
   .links__item {
     padding-right: 10vw;
   }
+
+  .links__item--last {
+    padding-right: 0;
+  }
+  
+}
+
+@media (max-width:430px) {
+  .links__item--anchor {
+    font-size: 14px;
+  }
+}
+
+@media (max-width:360px) {
   .links__item--anchor {
     font-size: 12px;
   }

@@ -5,27 +5,14 @@ import ContactMe from "./components/ContactMe/ContactMe";
 import Home from "./components/Home/Home";
 import Projects from "./components/Projects/Projects";
 import Resume from "./components/Resume/Resume";
-import Information from "./components/Header/Information";
+import Header from "./components/Header/Header";
 import Links from "./components/Header/Links";
 
 function App() {
   return (
     <div className="app">
-      <div className="app__container">
-        <div className="app__container--item">
-          <div className="header__portrait--container">
-            <img
-              className="header__portrait"
-              src={require("./assets/Abner_Pena_Portrait.jpg")}
-              alt="Abner Peña Portrait"
-            />
-          </div>
-          <div className="header__body">
-            <Information />
-            <Links />
-          </div>
-        </div>
-      </div>
+      <Header />
+      <Links />
       <div className="app__container app__body">
         <BrowserRouter>
           <Routes>
