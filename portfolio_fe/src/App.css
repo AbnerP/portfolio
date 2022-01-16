@@ -47,3 +47,18 @@
   flex-direction: column;
   justify-content: center;
 }
+
+@media (max-width:990px) {
+  .app__container{
+    /* transform: scale(.2); */
+    width: 90vw;
+  }
+
+  .header__portrait {
+    width: 20vw;
+    height: 20vw;
+  }
+  
+
+
+}

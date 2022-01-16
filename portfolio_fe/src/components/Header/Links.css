@@ -38,3 +38,15 @@
   transition: .2s ease-in-out;
   color: var(--accent-color);
 }
+
+@media (max-width:990px) {
+  .links {
+    transform: scale(.9);
+  }
+  .links__item {
+    padding-right: 10vw;
+  }
+  .links__item--anchor {
+    font-size: 12px;
+  }
+}
