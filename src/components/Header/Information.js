@@ -6,7 +6,7 @@ function Information() {
   return (
     <div className="info">
       <div className="info__credentials">
-        <h1 className="info__credentials--name">Abner X Peña Carrion</h1>
+        <h1 className="info__credentials--name">Abner Peña</h1>
         <h2 className="info__credentials--email">abnrr.pena@gmail.com</h2>
       </div>
       <Logos />
