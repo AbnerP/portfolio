@@ -34,9 +34,11 @@ function ContactMe() {
   const [messageModified,setMessageModified] = useState(false);
 
   const [valid,setValid] = useState(false);
+  const [sending,setSending] = useState(false);
   
   const sendEmail = (e) => {
     e.preventDefault();
+    setSending(true);
     emailjs
       .sendForm(
         "service_bkmdm7f",
@@ -45,6 +47,7 @@ function ContactMe() {
         "user_8xZpmuiB4SUXtsvmtYq2y"
       )
       .then(() => {
+        setSending(false);
         clearForm();
         sentToast();
       })
@@ -156,7 +159,7 @@ function ContactMe() {
           helperText={messageError  ? 'A message is required' : ' '}
           />
 
-        <Button variant="outlined" color="primary" type="submit" disabled={!valid} endIcon={<Send />} disableElevation >
+        <Button variant="outlined" color="primary" type="submit" disabled={!valid || sending} endIcon={<Send />} disableElevation >
           Send 
         </Button>
 
