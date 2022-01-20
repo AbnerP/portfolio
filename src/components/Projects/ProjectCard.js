@@ -1,3 +1,5 @@
+import { Button } from "@material-ui/core";
+import { Web, Code } from "@material-ui/icons";
 import React from "react";
 import "./ProjectCard.css";
 
@@ -15,14 +17,9 @@ function ProjectCard({
       return null;
     }
     return (
-      <a
-        className="externalLink externalLink--site"
-        href={realLink}
-        target="_blank"
-        rel="noreferrer"
-      >
-        View Site
-      </a>
+      <Button href={realLink} target="_blank" rel="noreferrer" variant="outlined" color="primary" type="submit" endIcon={<Web />} disableElevation >
+          Website  
+      </Button>
     );
   };
   const linkRealSite = () => {
@@ -82,15 +79,11 @@ function ProjectCard({
         </div>
         <div className="projectCard__techStack"></div>
         <div className="projectCard__externalLinks">
+          
           {viewSite()}
-          <a
-            className="externalLink"
-            href={githubLink}
-            target="_blank"
-            rel="noreferrer"
-          >
-            View Code
-          </a>
+          <Button href={githubLink} target="_blank" rel="noreferrer" variant="outlined" color="primary" type="submit" endIcon={<Code />} disableElevation >
+          Code 
+          </Button>
         </div>
       </div>
     </div>

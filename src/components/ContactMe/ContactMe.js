@@ -156,7 +156,7 @@ function ContactMe() {
           helperText={messageError  ? 'A message is required' : ' '}
           />
 
-        <Button variant="outlined" color="primary" type="submit" disabled={!valid} endIcon={<Send />} disableElevation className={classes.button}>
+        <Button variant="outlined" color="primary" type="submit" disabled={!valid} endIcon={<Send />} disableElevation >
           Send 
         </Button>
 

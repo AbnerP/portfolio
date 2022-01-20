@@ -5,7 +5,7 @@ import "./Projects.css";
 function Projects() {
   const projectDivider = (i) => {
     if (i >= 1) {
-      return <div className="projects_divider"></div>;
+      return <div key={i} className="projects_divider"></div>;
     }
     return null;
   };
@@ -52,7 +52,7 @@ function Projects() {
         "This is my first ever application using React. Before this, I would always use Angular for the Front End. I wanted to challenge myself and learn React as I am looking to use React Native for mobile development in the near future.",
       realLink: "",
       githubLink: "https://github.com/AbnerP/portfolio",
-      stack: ["React"],
+      stack: ["React","Material UI"],
       imageURL: "bitmoji_portrait.png",
       features: ["Emailing"],
     },
