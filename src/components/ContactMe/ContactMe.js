@@ -1,13 +1,40 @@
+import { Button, makeStyles, TextField, Typography } from "@material-ui/core";
+import Send from '@material-ui/icons/Send';
 import emailjs from "emailjs-com";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import "./ContactMe.css";
+import { emailErrorToMessage, validateEmail, validateMessage, validateName } from "./contactMeValidators.js";
+
+const useStyles = makeStyles((theme) => {
+  return {
+    input: {
+      margin: theme.spacing(1),
+    }
+  };
+});
+
+
 
 function ContactMe() {
+  const classes = useStyles();
   const sentToast = () => toast("Email sent!");
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  const [nameError,setNameError] = useState(false);
+  const [emailError,setEmailError] = useState(0);
+  const [messageError,setMessageError] = useState(false);
+
+  const [nameClicked,setNameClicked] = useState(false);
+  const [messageClicked,setMessageClicked] = useState(false);
+
+  const [messageModified,setMessageModified] = useState(false);
+
+  const [valid,setValid] = useState(false);
+  
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -17,7 +44,7 @@ function ContactMe() {
         e.target,
         "user_8xZpmuiB4SUXtsvmtYq2y"
       )
-      .then((res) => {
+      .then(() => {
         clearForm();
         sentToast();
       })
@@ -28,48 +55,111 @@ function ContactMe() {
     setEmail("");
     setName("");
     setMessage("");
+
+    setNameError(false);
+    setEmailError(0);
+    setMessageError(false);
+
+    setNameClicked(false);
+    setMessageClicked(false);
+    setMessageModified(false);
+
+    setValid(false);
   };
+
+  useEffect(()=>{
+    setNameError(validateName(name));
+  },[name]);
+  
+  useEffect(()=>{
+    setEmailError(validateEmail(email));
+  },[email]);
+
+  useEffect(()=>{
+    setMessageError(validateMessage(message));
+  },[message]);
+
+  useEffect(()=>{
+    if(!nameError && !messageError && emailError === 0 && nameClicked && messageClicked && messageModified) {
+      setValid(true);
+    }else{
+      setValid(false);
+    }
+  },[nameError,emailError,messageError,nameClicked,messageClicked,messageModified])
+
+  useEffect(()=>{
+    setNameError(false);
+    setEmailError(0);
+    setMessageError(false);
+    setValid(false);
+  },[])
+
+  
 
   return (
     <div className="contactMe">
-      <h1 className="contactMe_Greeting">Contact me</h1>
+      <Typography variant="h4" component="h2" align="center" >Contact Me</Typography>
       <form className="contactMe__form" onSubmit={sendEmail}>
-        <div className="contactMe__formGroup">
-          <label htmlFor="name">Name</label>
-          <input
-            className="contactMe__input"
-            type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+          <TextField 
+          onClick={() => setNameClicked(true)}
+          onBlur={(e) => {
+            setNameError(!(e.target.value.length > 0));
+          }}
+          onChange={(e) => setName(e.target.value)}
+          className={classes.input}
+          label="Name"
+          variant="outlined"
+          color="primary"
+          id="name"
+          name="name"
+          value={name}
+          fullWidth
+          error={nameError}
+          helperText={nameError ? 'Name is required' : ' '}
           />
-        </div>
-        <div className="contactMe__formGroup">
-          <label htmlFor="email">Email</label>
-          <input
-            className="contactMe__input"
-            type="text"
-            name="email"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+
+          <TextField 
+          onBlur={(e) => setEmailError(validateEmail(e.target.value))}
+          onChange={(e) => {setEmail(e.target.value)}}
+          className={classes.input}
+          label="Email"
+          variant="outlined"
+          color="primary"
+          name="email"
+          id="email"
+          value={email}
+          fullWidth
+          error={emailError === 0 ? false : true}
+          helperText={emailErrorToMessage(emailError)}
+           />
+
+          <TextField 
+          onFocus={() => setMessageClicked(true)}
+          onBlur={(e) => {
+            setMessageError(validateMessage(e.target.value));
+          }}
+          onChange={(e) => {
+            setMessage(e.target.value);
+            setMessageModified(true)
+          }}
+          className={classes.input}
+          label="Message"
+          variant="outlined"
+          color="primary"
+          id="message"
+          name="message"
+          value={message}
+          fullWidth
+          multiline
+          rows={4}
+          error={messageError}
+          helperText={messageError  ? 'A message is required' : ' '}
           />
-        </div>
-        <div className="contactMe__formGroup">
-          <label htmlFor="message">Message</label>
-          <textarea
-            className="contactMe__input"
-            type="text"
-            id="message"
-            name="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-        </div>
-        <button className="contactMe_submitBTN" type="submit">
-          Send
-        </button>
+
+        <Button variant="outlined" color="primary" type="submit" disabled={!valid} endIcon={<Send />} disableElevation className={classes.button}>
+          Send 
+        </Button>
+
       </form>
       <Toaster
         toastOptions={{

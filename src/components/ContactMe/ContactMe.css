@@ -1,3 +1,6 @@
+.contactMe{
+    margin-bottom: 2rem;
+}
 .contactMe__form{
     width: 50vw;
     display: flex;
@@ -5,62 +8,3 @@
     align-items: center;
 }
 
-.contactMe_Greeting{
-    text-align: center;
-}
-
-.contactMe__nameEmailContainer{
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-}
-
-.contactMe__formGroup{
-    margin: .2rem;
-}
-
-.contactMe__input--name{
-    width: 20%;
-}
-
-label{
-    font-weight: 500;
-    font-size:1.2rem;
-    color: var(--accent--color);
-}
-
-.contactMe__input{
-    transition: .3s ease;
-    box-shadow: 0px 0px 2px 0 rgba(0, 0, 0, .2);
-    width:50vw;
-    font-size: 1.2rem;
-    padding: .5em;
-    color: var(--text-color);
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: .5rem;
-}
-
-.contactMe__input:focus{
-    background-color: rgba(0, 0, 0, 0.01);
-    border: 1px solid var(--accent-color);
-    transition: .3s ease;
-}
-
-.contactMe_submitBTN{
-    transition: .3s ease;
-    margin-top: 1rem;
-    width: 30vw;
-    padding: .7rem 0;
-    border: none;
-    color: white;
-    border-radius: .5rem;
-    background-color: var(--accent-color);
-}
-
-.contactMe_submitBTN:active{
-    transition: .3s ease;
-    padding: .7rem 0;
-    filter: brightness(85%);
-}

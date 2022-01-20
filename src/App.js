@@ -7,10 +7,19 @@ import Projects from "./components/Projects/Projects";
 import Resume from "./components/Resume/Resume";
 import Header from "./components/Header/Header";
 import Links from "./components/Header/Links";
-
+import { createTheme, ThemeProvider } from "@material-ui/core";
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#F87666",
+    }
+  }
+});
 function App() {
   return (
     <div className="app">
+      <ThemeProvider theme={theme}>
+
       <Header />
       <Links />
       <div className="app__container app__body">
@@ -24,6 +33,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </div>
+      </ThemeProvider>
     </div>
   );
 }
