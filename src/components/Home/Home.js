@@ -6,11 +6,12 @@ function Home() {
     <div className="home">
       <h1 className="home__title">Hi, I'm Abner.</h1>
       <p className="home__paragraph">
-        I am a Full Stack developer from Caguas, Puerto Rico, currently
-        finishing my Bachelors degree in Computer Science at the University of
-        Rochester. I am passionate about automation, Machine Learning, finance,
-        motorsports and fitness. In my free time, I enjoy listening to my
-        favorite podcasts and teching myself new technologies.
+        I am a Backend Software Engineer based in Seattle, WA currently 
+        working in the Customer Journey Optimizer product in Qualtrics.
+        I am passionate about automation, Machine Learning, finance,
+        motorsports and fitness. In my free time, I enjoy listening to 
+        podcasts from <a target="_blank" href="https://lexfridman.com/podcast/">Lex Fridman</a>  and <a target="_blank" href="https://hubermanlab.com/">Andrew Huberman</a> as 
+        well as teaching myself new technologies.
       </p>
       <p className="home__paragraph">
         My most recent project is Puerto Rico eRacing Club’s website, where I
